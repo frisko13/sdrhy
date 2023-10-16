@@ -1,32 +1,13 @@
-import time
+def count_trailing_zeros(n):
+    count = 0
+  
+    # Пока n делится на 5
+    while n >= 5:
+        n //= 5
+        count += n
 
-smiley = [
-    "    😊😊   ",
-    "  😊    😊  ",
-    " 😊      😊 ",
-    " 😊      😊 ",
-    "  😊    😊  ",
-    "    😊😊   "
-]
+    return count
 
-def clear_screen():
-    print("\033c", end="")
-
-def display_smiley(smiley):
-    for row in smiley:
-        print(row)
-    print()
-    time.sleep(0.2)
-
-def move_smiley(smiley, distance):
-    clear_screen()
-    for row in smiley:
-        print(" " * distance + row)
-    print()
-
-distance = 0
-while distance < 40:
-    move_smiley(smiley, distance)
-    distance += 1
-
-clear_screen()
+number = 900
+trailing_zeros = count_trailing_zeros(number)
+print("Количество нулей в конце факториала", number, "равно:", trailing_zeros)
